@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
    <style type="text/css">
-    .centre{
+    .div_centre{
         text-align: center;
     }
     .h2_font{
@@ -11,6 +11,13 @@
     }
     .input_color{
       color:black;
+    }
+    .centre{
+      margin: auto;
+      width:50%;
+      text-align:centre:
+      margin-top: 30px;
+      border:3px solid white;
     }
    </style>
    @include('Admin.css')
@@ -28,7 +35,7 @@
   {{session()->get('message')}}
    </div>
   @endif
-            <div class="centre">
+            <div class="div_centre">
                 <h2 class="h2_font">Add category</h2>
                 <form action = "{{url('/add_category')}}" method ="POST">
                 @csrf
@@ -37,6 +44,20 @@
 
                 </form>
             </div>
+            <table class="centre">
+              <tr>
+              <td>Category Name</td>
+              <td>Action</td>
+              </tr>
+              <tr>
+                @foreach($data as $data)
+              <td>{{$data->category_name}}</td>
+              <td>
+                <a class="btn btn-danger" href="{{url('/delete_category',$data->id)}}">Delete </a>
+              </td>
+              </tr>
+              @endforeach
+            </table>
 </div>
 </div>
 
