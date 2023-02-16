@@ -5,28 +5,20 @@
   </head>
   <body>
     <div class="container-scroller">
-      <!-- partial:partials/_sidebar.html -->
-      @include('Admin.sidebar')
-      <!-- partial -->
       @include('Admin.header')
+      @include('Admin.sidebar')
       @include('Admin.body')
-    
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Esoko.com 2023</span>
               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Ecommerce <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">System Created by Mwacharo</a> Developer@Ekenya</span>
             </div>
           </footer>
-          <!-- partial -->
+        
         </div>
-        <!-- main-panel ends -->
+      
       </div>
-      <!-- page-body-wrapper ends -->
+      
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    @include('Admin.css')
   </body>
 </html>

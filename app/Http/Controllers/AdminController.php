@@ -14,7 +14,7 @@ class AdminController extends Controller
     }
     //sending data to the database from a the category.blade.php form
     public function add_category(Request $request){
-        $data=new Category;
+        $data=new category;
         $data->category_name=$request->category;
         $data->save();
         return redirect()->back()->with('message','Category Added Successfully');
@@ -22,7 +22,7 @@ class AdminController extends Controller
     }
     public function delete_category($id)
     {
-        $data=Category::find($id);
+        $data=category::find($id);
         $data->delete();
         return redirect()->back();
     }

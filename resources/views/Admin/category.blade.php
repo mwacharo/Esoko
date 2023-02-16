@@ -31,18 +31,20 @@
 <div class="content-wrapper">
   @if(session()->has('message'))
    <div class="alert alert-success">
-   <button type="button" class="close" data-dismiss="alert" arial-hidden="true">x</button>
+  
+   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x
+</button>
   {{session()->get('message')}}
    </div>
   @endif
             <div class="div_centre">
                 <h2 class="h2_font">Add category</h2>
-                <form action = "{{url('/add_category')}}" method ="POST">
+              <form action = "{{url('/add_category')}}" method ="POST">
                 @csrf
-                    <input type="text" name="category" class="input_color" placeholder ="Add category">
+                    <input type="text" name="category" class="input_color" placeholder ="Add category" required="">
                     <input type ="submit" class = "btn btn-primary" value ="Add category">
 
-                </form>
+              </form>
             </div>
             <table class="centre">
               <tr>
@@ -53,7 +55,8 @@
                 @foreach($data as $data)
               <td>{{$data->category_name}}</td>
               <td>
-                <a class="btn btn-danger" href="{{url('/delete_category',$data->id)}}">Delete </a>
+                <a class="btn btn-danger" onclick="return confirm('Are You sure to delete')" href="{{url('/delete_category',$data->id)}}"> Delete </a>
+          
               </td>
               </tr>
               @endforeach
