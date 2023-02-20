@@ -18,10 +18,11 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title')->notNullable();
             $table->string('description')->notNullable();
-            $table->string('image')->notNullable();
+            $table->string('price')->notNullable();
             $table->string('quantity')->notNullable();
+            $table->string('discount_price')->Nullable();
             $table->string('Category')->notNullable();
-            $table->string('discount_price')->notNullable();
+            $table->string('image')->Nullable();
             
         });
     }
