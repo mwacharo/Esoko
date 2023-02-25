@@ -18,3 +18,44 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <style type="text/css">
+    .div_centre{
+      text-align: center;
+    }
+    .h2_font{
+      font-size:40px;
+      padding-bottom:40px;
+    }
+  .label {
+  display: inline-block;
+  width: 150px; 
+  text-align: right;
+  margin-right: 10px;
+}
+
+.input_color {
+  color:black;
+  width: 300px; 
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.div_design {
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+   </style>
