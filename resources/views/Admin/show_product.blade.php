@@ -76,7 +76,7 @@
                 <img class="img_size" src="/product/{{$product->image}}"/>
             </td>
             <td> <a class="btn btn-danger" onclick="return confirm('Are You sure to delete')" href="{{url('/delete_product',$product->id)}}"> Delete </a></td>
-            <td> <a class="btn btn-success"  href="{{url('/update_product')}}"> Edit </a></td>
+            <td> <a class="btn btn-success"  href="{{url('/update_product',$product->id)}}"> Edit </a></td>
               </tr>
               @endforeach
             </table>
