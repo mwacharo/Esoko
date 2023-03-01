@@ -48,7 +48,7 @@
   <div class="div_design">
     <label class="label">Product Category:</label>
     <select class="input_color" name="Category" >
-    <option value="value="{{$product->Category}}"" selected="">{{$product->Category}}</option>
+    <option value="{{$product->Category}}"" selected="">{{$product->Category}}</option>
       @foreach($category as $category)
       <option value="{{$category->category_name}}">{{$category->category_name}}</option>
        @endforeach

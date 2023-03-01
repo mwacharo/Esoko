@@ -43,6 +43,6 @@ Route::get('/show_product',[AdminController::class,'show_product']);
 Route::get('/delete_product/{id}',[AdminController::class,'delete_product']); 
 //getting the product to update from the database
 Route::get('/update_product/{id}',[AdminController::class,'update_product']); 
-
+//posting data to the database
 Route::post('/update_productpost/{id}',[AdminController::class,'update_productpost']);
 
