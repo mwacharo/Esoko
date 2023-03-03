@@ -12,7 +12,8 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $product=product::all();
+        $product=product::paginate(9);
+        //$product=product::all();
 
         return view('Home.userpage',Compact('product'));
     }
@@ -24,9 +25,17 @@ class HomeController extends Controller
             return view('Admin.home');
         }
         else {
-            return view('Home.userpage');
+            $product=product::paginate(9);
+            //$product=product::all();
+    
+            return view('Home.userpage',Compact('product'));
         }
      
+    }
+    public function product_details($id){
+        $product=product::find($id);
+        return view('Home.product_details',Compact('product'));
+
     }
     
 }

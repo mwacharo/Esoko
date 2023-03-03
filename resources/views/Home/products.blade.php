@@ -9,14 +9,14 @@
             </div>
 
             <div class="row">
-            @foreach ($product as $product)
+            @foreach ($product as $products)
                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="box">
                      <div class="option_container">
                      
                         <div class="options">
-                           <a href="" class="option1">
-                           Men's Shirt
+                           <a href="{{url('product_details',$products->id)}}" class="option1">
+                           product details
                            </a>
                            <a href="" class="option2">
                            Buy Now
@@ -24,24 +24,23 @@
                         </div>
                      </div>
                      <div class="img-box">
-                     <img src = "product/{{$product->image}}" alt="">
+                     <img src = "product/{{$products->image}}" alt="">
                          
                      </div>
                      <div class="detail-box">
                         <h5>
-                        {{$product->title}}
+                        {{$products->title}}
                         </h5>
                         <h6>
-                        Ksh{{$product->price}}
-                        <!-- {{$product->description}}
-                        {{$product->price}}
-                        {{$product->quantity}}
-                        {{$product->discount_price}} -->
+                        Ksh{{$products->price}}
+                        
                         </h6>
                      </div>
                   </div>
                </div>
             @endforeach
+             {!!$product->withQueryString()->links('pagination::bootstrap-5')!!}
+            
         </div>
          </div>
       </section>
