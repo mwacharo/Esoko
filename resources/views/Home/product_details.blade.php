@@ -23,14 +23,14 @@
       <link href="home/css/responsive.css" rel="stylesheet" />
    </head>
    <body>
-     
         @include('Home.header')
-       
         <section class="product_section layout_padding">
+
          <div class="container">
+
             <div class="heading_container heading_center">
                <h2>
-                  Product <span>details</span>
+                   <span>Product details</span>
                </h2>
             </div>
 
@@ -39,25 +39,38 @@
                <div class="col-sm-6 col-md-4 col-lg-4" style="margin:auto; width:50px; padding:30px;">
                   <div class="box">
                      <div class="option_container">
-                     
-                       
                      </div>
+                  </div>
+
                      <div class="img-box">
-                     <img src = "product/{{$product->image}}" alt="">
-                         
+                     <img src = "product/{{$product->image}}" alt="">  
                      </div>
+
                      <div class="detail-box">
-                    <ul>
+                         <ul>
                         <li><h5>{{$product->title}}</h5></li>
                         <li><h6>Ksh{{$product->price}}</h6></li>
                         product descrpition:<li><h6>{{$product->description}}</h6></li>
-                        <a href="#" class= "btn btn-primary">Add to Cart</a>
 
+                        <form action="{{url('/add_cart',$product->id)}}" method="POST">`
+                              @csrf
+
+                          <div class="row">
+                           <div class="col-md-4">
+                              <input type ="number" name="quantity" value="1" min= "1"style="width:50px;" required="">
+                             </div>
+                             <div class="col-md-4">
+                              <input type="submit" value="Add cart">
+                           </div>
+
+                            </div>
+                         </form>
                      </div>
+
                   </div>
-               </div>
-         
-            
+               
+       </div>
+
         </div>
          </div>
       </section>
