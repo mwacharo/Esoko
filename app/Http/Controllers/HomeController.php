@@ -68,5 +68,24 @@ class HomeController extends Controller
 
         }
     }
-    
+    public function show_cart(){
+    if (Auth::id()){
+        $id= Auth::user()->id;
+        //dd($id);
+        $add_cart =add_cart::where('user_id','=',$id)->get();
+       
+        
+        return view('Home.cart',Compact('add_cart'));
+
+        }
+       else{
+        return redirect('login');
+       }
+    }
+    public function remove_cart($id)
+{
+    $add_cart=add_cart::find($id);
+    $add_cart->delete();
+    return redirect()->back()->with('message','cart removed Successfully');
+}    
 }
