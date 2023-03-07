@@ -46,6 +46,17 @@
         @include('Home.header')
 
         
+        @if(session()->has('message'))
+   <div class="alert alert-success">
+  
+   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x
+</button>
+  {{session()->get('message')}}
+      </div>
+      @endif
+      
+
+        
         <div class="table_des" >
             <table>
                 <tr>
@@ -56,8 +67,6 @@
                 <th class= "th_des">action</th>
                 </tr>
                 
-                
-              
                 <tr>
                 <?php $totalprice =0 ?>
     
@@ -79,7 +88,18 @@
               @endforeach
                    
             </table>
-            {{$totalprice}}
+          
+            <div>
+            <h1 style="font-size:15px; padding-bottom:30px; padding-top:30px;">Total price:ksh{{$totalprice}}</h1>
+           </div>
+
+           <div> 
+            <h1 style="font-size:15px; padding-bottom:30px;">proceed to order<h1>
+            <a href="{{url('/order')}}" class="btn btn-primary">cash on delivery</a>
+            <a href="#" class="btn btn-success"> MPESA</a>
+           
+           </div>
+           
            
 
         </div>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Add_cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -87,5 +88,36 @@ class HomeController extends Controller
     $add_cart=add_cart::find($id);
     $add_cart->delete();
     return redirect()->back()->with('message','cart removed Successfully');
-}    
+}   
+public function order(){
+     $user=Auth::user();
+     $userid =$user->id;
+     $add_cart=add_cart::where('user_id','=',$userid)->get();
+
+
+     foreach($add_cart as $add_cart)
+     {
+        $order=new order();
+        $order->name= $add_cart->name;
+        $order->email= $add_cart->email;
+        $order->phone= $add_cart->phone;
+        $order->user_id= $add_cart->user_id;
+        $order->product_title= $add_cart->product_title;
+        $order->quantity= $add_cart->quantity;
+        $order->price= $add_cart->price;
+        $order->image= $add_cart->image;
+        $order->product_status= 'pending';
+        $order->delivery_status= 'pending';
+        $order->save();
+
+        $order=$add_cart->id;
+        $placedorder= add_cart::find($order);
+        $placedorder->delete();
+    
+
+     }
+    return redirect()->back()->with('message','order placed succefully');
+
+   
+} 
 }
