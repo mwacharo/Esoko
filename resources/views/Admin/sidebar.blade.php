@@ -77,6 +77,7 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{url('/view_product')}}">Add Product</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{url('/show_product')}}">Show Products</a></li>
+            
           </ul>
         </div>
       </li>
@@ -86,6 +87,14 @@
             <i class="mdi mdi-playlist-play"></i>
           </span>
           <span class="menu-title">category</span>
+        </a>
+      </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('orders')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-playlist-play"></i>
+          </span>
+          <span class="menu-title">Orders</span>
         </a>
       </li>
     </ul>

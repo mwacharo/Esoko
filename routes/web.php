@@ -30,26 +30,25 @@ Route::middleware([
     })->name('dashboard');
     Route::get('/redirect',[HomeController::class,'redirect']);
 });
-
+//admin routes 
 Route::get('/view_category',[AdminController::class,'view_category']); 
 Route::post('/add_category',[AdminController::class,'add_category']); 
-//route::get('/delete_category/{id}',[AdminController::class,'delete']); 
-//Route::get('delete_category',$data->id,[AdminController::class,'delete_category']);
 Route::get('/delete_category/{id}',[AdminController::class,'delete_category']); 
 Route::get('/view_product',[AdminController::class,'view_product']); 
 Route::post('/add_product',[AdminController::class,'add_product']); 
 Route::get('/show_product',[AdminController::class,'show_product']); 
-
 Route::get('/delete_product/{id}',[AdminController::class,'delete_product']); 
-//getting the product to update from the database
 Route::get('/update_product/{id}',[AdminController::class,'update_product']); 
-//posting data to the database
 Route::post('/update_productpost/{id}',[AdminController::class,'update_productpost']);
+Route::get('/orders',[AdminController::class,'orders']); 
+
+//client routes
 Route::get('/product_details/{id}',[HomeController::class,'product_details']); 
 Route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
 Route::get('/show_cart',[HomeController::class,'show_cart']); 
 Route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']); 
 Route::get('/order',[HomeController::class,'order']); 
+
 
 
 

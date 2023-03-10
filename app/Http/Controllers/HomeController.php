@@ -106,7 +106,7 @@ public function order(){
         $order->quantity= $add_cart->quantity;
         $order->price= $add_cart->price;
         $order->image= $add_cart->image;
-        $order->product_status= 'pending';
+        $order->product_status= 'cash on delivery';
         $order->delivery_status= 'pending';
         $order->save();
 
@@ -117,7 +117,6 @@ public function order(){
 
      }
     return redirect()->back()->with('message','order placed succefully');
+}
 
-   
-} 
 }
