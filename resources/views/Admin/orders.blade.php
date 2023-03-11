@@ -29,7 +29,7 @@
     }
     .th_design{
       
-      padding:40px;
+      padding:30px;
     
     }
    </style>
@@ -55,9 +55,12 @@
                <th class="th_design">product title</th>
                <th class="th_design">quantity</th>
                <th class="th_design">price</th>	
-               <th class="th_design">image</th> 
                <th class="th_design">payment status</th>
                <th class="th_design">delivery_status</th>
+               
+               <th class="th_design">image</th> 
+               <th class="th_design">delivered</th>
+               <th class="th_design">printorder</th>
               </tr>
 
               <tr>
@@ -68,14 +71,28 @@
               <td>{{$order->phone}}</td>
               <td>{{$order->product_title}}</td>
               <td>{{$order->quantity}}</td> 
-              <td>{{$order->price}}</td>             
+              <td>{{$order->price}}</td>            
+              <td>{{$order->product_status}}</td>
+              <td>{{$order->delivery_status}}</td>
+              
+            
               <td>
                 <img class="img_size" src="/product/{{$order->image}}"/>
             </td>
-              <td>{{$order->product_status}}</td>
-              <td>{{$order->delivery_status}}</td>
-              </tr>
-              @endforeach
+           
+            <td>
+            @if($order->delivery_status=='pending')
+            <a href="{{url('/deliverd',$order->id)}}" class="btn btn-primary ">Delivered</a>
+            @else
+            <p>delivered</p>
+            @endif
+              </td>
+              <td><a href="{{url('/printpdf',$order->id)}}" class="btn btn-secondary ">Printpdf</a></td>
+           
+            </tr>
+            
+              
+            @endforeach
             </table>
 </div>
 </div>

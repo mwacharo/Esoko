@@ -41,6 +41,9 @@ Route::get('/delete_product/{id}',[AdminController::class,'delete_product']);
 Route::get('/update_product/{id}',[AdminController::class,'update_product']); 
 Route::post('/update_productpost/{id}',[AdminController::class,'update_productpost']);
 Route::get('/orders',[AdminController::class,'orders']); 
+Route::post('/delivered/{id}',[AdminController::class,'delivered']); 
+Route::get('/printpdf/{id}',[AdminController::class,'printpdf']); 
+
 
 //client routes
 Route::get('/product_details/{id}',[HomeController::class,'product_details']); 
@@ -48,6 +51,8 @@ Route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
 Route::get('/show_cart',[HomeController::class,'show_cart']); 
 Route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']); 
 Route::get('/order',[HomeController::class,'order']); 
+
+
 
 
 

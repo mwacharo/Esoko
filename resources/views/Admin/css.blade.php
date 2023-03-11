@@ -22,6 +22,9 @@
     .div_centre{
       text-align: center;
     }
+    body{background-color:#292939;
+
+    }
     .h2_font{
       font-size:40px;
       padding-bottom:40px;

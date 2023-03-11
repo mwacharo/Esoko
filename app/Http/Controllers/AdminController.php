@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -36,25 +37,7 @@ class AdminController extends Controller
         return view('Admin.product',Compact('category'));
 
     }
-    //receiving form data from the product blade and sending it to the databse in the product table
-    // public function add_product(Request $request){
-    //     $product=new product;
-    //     $product->title=$request->title;
-    //     $product->description=$request->description;
-    //     $product->price=$request->price;
-    //     $product->quantity=$request->quantity;
-    //     $product->discount_price=$request->discount;
-    //     $product->category=$request->category;
-    //     $image=$request->image;
-
-    //     $product->save();
-    //     return redirect()->back()->with('message','Product Added Succefully');
-    //      $image=$request->image;
-    //      $imagename=time().'.'.$image->getClientOriginalExtension();
-    //      $request->image->move('product',$imagename);
-    //      $product->image=$imagename;
-
-    // }
+   
     public function add_product(Request $request){
         $product=new product;
         $product->title=$request->title;
@@ -118,5 +101,21 @@ class AdminController extends Controller
     public function orders() {
         $order=order::all();
         return view('Admin.orders',Compact('order'));
+    }
+    public function delivered($id){
+        $order=order::find($id);
+        
+        $order->delivery_status="delivered";
+        $oder->save();
+        return redirect()->back();
+    }
+    public function printpdf($id){
+         $order=order::find($id);
+         $pdf=PDF::loadView('Admin.printpdf',Compact('order'));
+     
+         //eturn $pdf->download('receipt.pdf');
+         return $pdf->stream('receipt.pdf');
+         
+
     }
 }
